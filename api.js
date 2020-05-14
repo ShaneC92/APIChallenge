@@ -50,7 +50,13 @@ function displayResults(json) {
             
             name.textContent = "Name: " + current.name;
             gender.innerText = "Gender: " + current.gender;
-            ageInfo.innerText = "Age: " + current.age;
+            
+            if (current.age) {
+                ageInfo.innerText = "Age: " + current.age;
+            } else {
+                ageInfo.innertext = "Age: Unknown";
+            }
+
             eyecolorInfo.innerText = "Eye Color: " + current.eye_color;
       
             article.appendChild(heading);
