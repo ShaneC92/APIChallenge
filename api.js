@@ -9,7 +9,7 @@ submitBtn.addEventListener("click", fetchResults);
 function fetchResults(e) {
     e.preventDefault();
     console.log(e);
-    url = `${baseURL}?&limit=1`;
+    url = `${baseURL}`;
     console.log(url);
 
     fetch(url)
@@ -37,9 +37,9 @@ function displayResults(json) {
     if(people.length === 0) {
         console.log("No Results");
     } else {
-        for(let i = 0; i < people.length; i++) {
-            console.log(i);
-            
+
+        let randomValue = Math.floor(Math.random() * (people.length - 0 ) + 0);
+        let current = people[randomValue];
 
             let article = document.createElement("article");
             let name = document.createElement("h1")
@@ -47,7 +47,7 @@ function displayResults(json) {
             let gender = document.createElement("p");
             let ageInfo = document.createElement("p")
             let eyecolorInfo = document.createElement("p");
-            let current = people[i];
+            
             name.textContent = "Name: " + current.name;
             gender.innerText = "Gender: " + current.gender;
             ageInfo.innerText = "Age: " + current.age;
@@ -66,7 +66,7 @@ function displayResults(json) {
 
             // // people.appendChild(heading);
             // section.appendChild(people);
-        }
-    }
+        }   
+    
 
 }
